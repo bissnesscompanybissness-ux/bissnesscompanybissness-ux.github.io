@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RótulosAO</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --preto: #0a0a0a;
+    --ouro: #c9a84c;
+    --ouro-claro: #f0d078;
+    --vermelho: #cc2200;
+    --branco: #fafaf7;
+    --cinza: #f2f0eb;
+    --cinza-medio: #888;
+    --sombra: 0 4px 24px rgba(0,0,0,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cinza);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--preto);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--preto);
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--branco);
+    letter-spacing: -0.5px;
+  }
+
+  .logo span {
+    color: var(--ouro);
+  }
+
+  .badge {
+    background: var(--vermelho);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--preto) 0%, #1a1a1a 50%, #2a1500 100%);
+    color: var(--branco);
+    text-align: center;
+    padding: 56px 24px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 em {
+    color: var(--ouro);
+    font-style: normal;
+  }
+
+  .hero p {
+    color: rgba(255,255,255,0.65);
+    font-size: 1rem;
+    max-width: 460px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .passos {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  .passo {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: rgba(255,255,255,0.8);
+    padding: 8px 18px;
+    border-radius: 24px;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .passo .num {
+    background: var(--ouro);
+    color: var(--preto);
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.72rem;
+    flex-shrink: 0;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 32px 16px 60px;
+  }
+
+  /* FORMULÁRIO */
+  .form-card {
+    background: var(--branco);
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+
+  .form-secao {
+    padding: 24px 28px;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .form-secao:last-child { border-bottom: none; }
+
+  .secao-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--preto);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .secao-titulo .icone {
+    width: 32px; height: 32px;
+    background: var(--preto);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .grid-1 { display: grid; gap: 14px; }
+
+  @media (max-width: 600px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .form-secao { padding: 20px 18px; }
+  }
+
+  .campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .campo label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--cinza-medio);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .campo input,
+  .campo select,
+  .campo textarea {
+    background: var(--cinza);
+    border: 1.5px solid transparent;
+    border-radius: 10px;
+    padding: 11px 14px;
+    font-size: 0.92rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--preto);
+    transition: all 0.2s;
+    outline: none;
+    width: 100%;
+  }
+
+  .campo input:focus,
+  .campo select:focus,
+  .campo textarea:focus {
+    border-color: var(--ouro);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+  }
+
+  .campo textarea { min-height: 80px; resize: vertical; }
+
+  .campo select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+  }
+
+  .obrigatorio { color: var(--vermelho); margin-left: 2px; }
+
+  /* BOTÃO */
+  .btn-gerar {
+    width: 100%;
+    background: var(--preto);
+    color: var(--branco);
+    border: none;
+    border-radius: 14px;
+    padding: 18px 32px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-gerar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--ouro) 0%, var(--vermelho) 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .btn-gerar:hover::before { opacity: 1; }
+  .btn-gerar span, .btn-gerar svg { position: relative; z-index: 1; }
+
+  .btn-gerar:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+  .btn-gerar:active { transform: translateY(0); }
+  .btn-gerar:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+  /* LOADING */
+  .loading {
+    display: none;
+    text-align: center;
+    padding: 48px 24px;
+    background: var(--branco);
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+    margin-bottom: 28px;
+  }
+
+  .loading.ativo { display: block; }
+
+  .spinner {
+    width: 48px; height: 48px;
+    border: 3px solid var(--cinza);
+    border-top-color: var(--ouro);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+    margin: 0 auto 20px;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .loading h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .loading p { color: var(--cinza-medio); font-size: 0.88rem; }
+
+  /* RESULTADO */
+  .resultado {
+    display: none;
+    background: var(--branco);
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+    overflow: hidden;
+    margin-bottom: 28px;
+    animation: aparecer 0.4s ease;
+  }
+
+  @keyframes aparecer {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .resultado.ativo { display: block; }
+
+  .resultado-header {
+    background: var(--preto);
+    color: var(--branco);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .resultado-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .acoes {
+    display: flex;
+    gap: 8px;
+  }
+
+  .btn-acao {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .btn-acao:hover { background: rgba(255,255,255,0.22); }
+
+  .btn-acao.ouro {
+    background: var(--ouro);
+    border-color: var(--ouro);
+    color: var(--preto);
+  }
+
+  .btn-acao.ouro:hover { background: var(--ouro-claro); }
+
+  .resultado-corpo {
+    padding: 32px;
+    display: flex;
+    justify-content: center;
+    background: repeating-conic-gradient(#e8e6e1 0% 25%, var(--cinza) 0% 50%) 0 0 / 20px 20px;
+    min-height: 200px;
+    align-items: center;
+  }
+
+  #rotulo-preview {
+    background: white;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    max-width: 420px;
+    width: 100%;
+  }
+
+  /* ERRO */
+  .erro {
+    display: none;
+    background: #fff5f5;
+    border: 1.5px solid #ffcccc;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    color: var(--vermelho);
+    font-size: 0.9rem;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .erro.ativo { display: flex; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 32px 16px;
+    color: var(--cinza-medio);
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+
+  footer strong { color: var(--preto); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Rótulos<span>AO</span></div>
+  <div class="badge">🇦🇴 Angola</div>
+</header>
+
+<div class="hero">
+  <h1>Rótulos <em>Profissionais</em><br>com Inteligência Artificial</h1>
+  <p>Cria rótulos únicos e personalizados para o teu produto angolano em segundos.</p>
+  <div class="passos">
+    <div class="passo"><span class="num">1</span> Preenche os dados</div>
+    <div class="passo"><span class="num">2</span> A IA gera o rótulo</div>
+    <div class="passo"><span class="num">3</span> Descarregas e imprimes</div>
+  </div>
+</div>
+
+<main>
+
+  <!-- FORMULÁRIO -->
+  <form id="form-rotulo" onsubmit="return false;">
+
+    <!-- DADOS DO CLIENTE -->
+    <div class="form-card">
+      <div class="form-secao">
+        <div class="secao-titulo">
+          <div class="icone">👤</div>
+          Dados do Cliente
+        </div>
+        <div class="grid-2">
+          <div class="campo">
+            <label>Nome completo <span class="obrigatorio">*</span></label>
+            <input type="text" id="nomeCliente" placeholder="Ex: João Silva" required>
+          </div>
+          <div class="campo">
+            <label>Contacto (WhatsApp) <span class="obrigatorio">*</span></label>
+            <input type="text" id="contactoCliente" placeholder="Ex: +244 9XX XXX XXX" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- DADOS DO PRODUTO -->
+      <div class="form-secao">
+        <div class="secao-titulo">
+          <div class="icone">📦</div>
+          Dados do Produto
+        </div>
+        <div class="grid-2">
+          <div class="campo">
+            <label>Nome do produto <span class="obrigatorio">*</span></label>
+            <input type="text" id="nomeProduto" placeholder="Ex: Sumo de Múcua" required>
+          </div>
+          <div class="campo">
+            <label>Nome da marca <span class="obrigatorio">*</span></label>
+            <input type="text" id="nomeMarca" placeholder="Ex: Sabores de Angola" required>
+          </div>
+          <div class="campo">
+            <label>Categoria <span class="obrigatorio">*</span></label>
+            <select id="categoria" required>
+              <option value="">Selecciona...</option>
+              <option>Bebida / Sumo</option>
+              <option>Água</option>
+              <option>Alimento / Condimento</option>
+              <option>Cosmético / Beleza</option>
+              <option>Higiene e Limpeza</option>
+              <option>Produto Natural / Ervas</option>
+              <option>Azeite / Óleo</option>
+              <option>Mel e Derivados</option>
+              <option>Artesanato</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label>Volume / Peso / Quantidade</label>
+            <input type="text" id="quantidade" placeholder="Ex: 500ml, 1kg, 250g">
+          </div>
+          <div class="campo">
+            <label>Validade</label>
+            <input type="text" id="validade" placeholder="Ex: 12 meses após fabricação">
+          </div>
+          <div class="campo">
+            <label>Fabricado em</label>
+            <input type="text" id="fabricado" placeholder="Ex: Luanda, Angola">
+          </div>
+        </div>
+        <div class="grid-1" style="margin-top:14px">
+          <div class="campo">
+            <label>Ingredientes / Composição</label>
+            <textarea id="ingredientes" placeholder="Ex: Múcua, água purificada, açúcar..."></textarea>
+          </div>
+          <div class="campo">
+            <label>Modo de uso / Conservação</label>
+            <input type="text" id="modoUso" placeholder="Ex: Conservar em lugar fresco e seco">
+          </div>
+        </div>
+      </div>
+
+      <!-- IDENTIDADE VISUAL -->
+      <div class="form-secao">
+        <div class="secao-titulo">
+          <div class="icone">🎨</div>
+          Identidade Visual
+        </div>
+        <div class="grid-2">
+          <div class="campo">
+            <label>Cores preferidas <span class="obrigatorio">*</span></label>
+            <select id="cores" required>
+              <option value="">Selecciona...</option>
+              <option>Vermelho e dourado</option>
+              <option>Verde e amarelo</option>
+              <option>Preto e dourado (luxo)</option>
+              <option>Azul e branco</option>
+              <option>Laranja e castanho</option>
+              <option>Rosa e roxo</option>
+              <option>Verde e branco (natural)</option>
+              <option>Vermelho e branco</option>
+              <option>Dourado e creme</option>
+              <option>Cores da bandeira de Angola</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label>Estilo visual <span class="obrigatorio">*</span></label>
+            <select id="estilo" required>
+              <option value="">Selecciona...</option>
+              <option>Moderno e minimalista</option>
+              <option>Tradicional angolano</option>
+              <option>Luxo e elegante</option>
+              <option>Natural e orgânico</option>
+              <option>Divertido e colorido</option>
+              <option>Profissional e corporativo</option>
+              <option>Artesanal e rústico</option>
+              <option>Tropical e vibrante</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label>Slogan da marca</label>
+            <input type="text" id="slogan" placeholder="Ex: O sabor da nossa terra">
+          </div>
+          <div class="campo">
+            <label>Tipo de embalagem</label>
+            <select id="tipoEmbalagem">
+              <option value="">Selecciona...</option>
+              <option>Garrafa plástica</option>
+              <option>Garrafa de vidro</option>
+              <option>Frasco</option>
+              <option>Saco / Bolsa</option>
+              <option>Caixa</option>
+              <option>Bisnaga</option>
+              <option>Lata</option>
+              <option>Pote / Bidon</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid-2" style="margin-top:14px">
+          <div class="campo">
+            <label>Tamanho do rótulo</label>
+            <input type="text" id="tamanho" placeholder="Ex: 10cm x 7cm">
+          </div>
+        </div>
+      </div>
+
+      <!-- INFORMAÇÕES LEGAIS -->
+      <div class="form-secao">
+        <div class="secao-titulo">
+          <div class="icone">📋</div>
+          Informações Legais (opcional)
+        </div>
+        <div class="grid-2">
+          <div class="campo">
+            <label>NIF do fabricante</label>
+            <input type="text" id="nif" placeholder="Ex: 5417XXXXXXX">
+          </div>
+          <div class="campo">
+            <label>Contacto no rótulo</label>
+            <input type="text" id="contacto" placeholder="Ex: +244 9XX XXX XXX">
+          </div>
+          <div class="campo" style="grid-column: 1/-1">
+            <label>Endereço</label>
+            <input type="text" id="endereco" placeholder="Ex: Luanda, Angola">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTÃO GERAR -->
+    <button class="btn-gerar" onclick="gerarRotulo()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+      </svg>
+      <span>Gerar Rótulo com IA</span>
+    </button>
+  </form>
+
+  <!-- LOADING -->
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <h3>A criar o teu rótulo...</h3>
+    <p>A inteligência artificial está a trabalhar. Aguarda alguns segundos.</p>
+  </div>
+
+  <!-- ERRO -->
+  <div class="erro" id="erro">
+    <span>⚠️</span>
+    <span id="erro-msg">Ocorreu um erro. Tenta novamente.</span>
+  </div>
+
+  <!-- RESULTADO -->
+  <div class="resultado" id="resultado">
+    <div class="resultado-header">
+      <h3>✅ Rótulo Gerado com Sucesso</h3>
+      <div class="acoes">
+        <button class="btn-acao" onclick="copiarHTML()">📋 Copiar HTML</button>
+        <button class="btn-acao ouro" onclick="imprimir()">🖨️ Imprimir</button>
+      </div>
+    </div>
+    <div class="resultado-corpo">
+      <div id="rotulo-preview"></div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Feito com ❤️ em <strong>Angola</strong> · RótulosAO © 2026
+</footer>
+
+<script>
+  function obterDados() {
+    return {
+      nomeCliente: document.getElementById('nomeCliente').value,
+      contactoCliente: document.getElementById('contactoCliente').value,
+      nomeProduto: document.getElementById('nomeProduto').value,
+      nomeMarca: document.getElementById('nomeMarca').value,
+      categoria: document.getElementById('categoria').value,
+      quantidade: document.getElementById('quantidade').value || 'Não especificado',
+      validade: document.getElementById('validade').value || 'Ver embalagem',
+      fabricado: document.getElementById('fabricado').value || 'Angola',
+      ingredientes: document.getElementById('ingredientes').value || 'Não especificado',
+      modoUso: document.getElementById('modoUso').value || 'Não especificado',
+      cores: document.getElementById('cores').value,
+      estilo: document.getElementById('estilo').value,
+      slogan: document.getElementById('slogan').value || '',
+      tipoEmbalagem: document.getElementById('tipoEmbalagem').value || 'Não especificado',
+      tamanho: document.getElementById('tamanho').value || '10cm x 7cm',
+      nif: document.getElementById('nif').value || 'N/A',
+      contacto: document.getElementById('contacto').value || 'N/A',
+      endereco: document.getElementById('endereco').value || 'Angola'
+    };
+  }
+
+  function validar(dados) {
+    if (!dados.nomeCliente) return "Preenche o nome do cliente.";
+    if (!dados.contactoCliente) return "Preenche o contacto do cliente.";
+    if (!dados.nomeProduto) return "Preenche o nome do produto.";
+    if (!dados.nomeMarca) return "Preenche o nome da marca.";
+    if (!dados.categoria) return "Selecciona a categoria.";
+    if (!dados.cores) return "Selecciona as cores preferidas.";
+    if (!dados.estilo) return "Selecciona o estilo visual.";
+    return null;
+  }
+
+  function mostrarErro(msg) {
+    const el = document.getElementById('erro');
+    document.getElementById('erro-msg').textContent = msg;
+    el.classList.add('ativo');
+    setTimeout(() => el.classList.remove('ativo'), 5000);
+  }
+
+  function gerarRotulo() {
+    const dados = obterDados();
+    const erro = validar(dados);
+    if (erro) { mostrarErro(erro); return; }
+
+    // Esconde resultado anterior e mostra loading
+    document.getElementById('resultado').classList.remove('ativo');
+    document.getElementById('erro').classList.remove('ativo');
+    document.getElementById('loading').classList.add('ativo');
+    document.querySelector('.btn-gerar').disabled = true;
+
+    // Chama o backend Google Apps Script
+    google.script.run
+      .withSuccessHandler(function(res) {
+        document.getElementById('loading').classList.remove('ativo');
+        document.querySelector('.btn-gerar').disabled = false;
+
+        if (res.sucesso) {
+          document.getElementById('rotulo-preview').innerHTML = res.html;
+          document.getElementById('resultado').classList.add('ativo');
+          document.getElementById('resultado').scrollIntoView({ behavior: 'smooth' });
+
+          // Guarda o pedido na folha
+          google.script.run.guardarPedido(dados);
+        } else {
+          mostrarErro(res.erro || 'Erro ao gerar rótulo. Tenta novamente.');
+        }
+      })
+      .withFailureHandler(function(err) {
+        document.getElementById('loading').classList.remove('ativo');
+        document.querySelector('.btn-gerar').disabled = false;
+        mostrarErro('Erro de ligação. Verifica a tua chave API.');
+      })
+      .gerarRotulo(dados);
+  }
+
+  function copiarHTML() {
+    const html = document.getElementById('rotulo-preview').innerHTML;
+    navigator.clipboard.writeText(html).then(() => {
+      alert('HTML copiado! Podes colar num editor para guardar.');
+    });
+  }
+
+  function imprimir() {
+    const conteudo = document.getElementById('rotulo-preview').innerHTML;
+    const janela = window.open('', '_blank');
+    janela.document.write(`
+      <html><head><title>Rótulo</title>
+      <style>body{margin:20px;display:flex;justify-content:center;} @media print{body{margin:0;}}</style>
+      </head><body>${conteudo}</body></html>
+    `);
+    janela.document.close();
+    janela.print();
+  }
+</script>
+</body>
+</html>
