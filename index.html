@@ -3,747 +3,560 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RótulosAO</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>João Luís Marketing e Serviços — Luanda, Angola</title>
+<meta name="description" content="Soluções digitais para empresas em Angola. Marketing, automação, apps e presença online. Luanda, Angola.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,600&family=Syne:wght@400;500;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --preto: #0a0a0a;
-    --ouro: #c9a84c;
-    --ouro-claro: #f0d078;
-    --vermelho: #cc2200;
-    --branco: #fafaf7;
-    --cinza: #f2f0eb;
-    --cinza-medio: #888;
-    --sombra: 0 4px 24px rgba(0,0,0,0.10);
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --gold:#c9a84c;--gold2:#e8c96e;--cream:#f5f0e8;
+  --ink:#0e0c0a;--ink2:#1c1812;--muted:#7a6e5f;
+  --border:rgba(201,168,76,0.2);
+  --ff-head:'Cormorant Garamond',serif;
+  --ff-sans:'Syne',sans-serif;
+  --ff-body:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--ff-body);background:var(--ink);color:var(--cream);overflow-x:hidden;}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+body::after{content:'';position:fixed;inset:0;z-index:9990;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:0.3;}
 
-  body {
-    background: var(--cinza);
-    font-family: 'DM Sans', sans-serif;
-    color: var(--preto);
-    min-height: 100vh;
-  }
+/* Cursor */
 
-  /* HEADER */
-  header {
-    background: var(--preto);
-    padding: 18px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.3);
-  }
 
-  .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    font-weight: 900;
-    color: var(--branco);
-    letter-spacing: -0.5px;
-  }
 
-  .logo span {
-    color: var(--ouro);
-  }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:20px 56px;display:flex;align-items:center;justify-content:space-between;transition:all 0.4s;border-bottom:1px solid transparent;}
+nav.scrolled{background:rgba(14,12,10,0.95);border-color:var(--border);padding:12px 56px;backdrop-filter:blur(20px);}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo img{width:50px;height:50px;object-fit:contain;border-radius:50%;}
+.nav-logo-text{font-family:var(--ff-head);font-size:16px;font-weight:600;color:var(--cream);line-height:1.2;}
+.nav-logo-text span{color:var(--gold);font-style:italic;display:block;font-size:13px;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-family:var(--ff-sans);font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,0.55);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{font-family:var(--ff-sans);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 24px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;transition:all 0.2s;}
+.nav-cta:hover{background:var(--gold);color:var(--ink);}
 
-  .badge {
-    background: var(--vermelho);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 20px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:0 56px;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse 70% 70% at 65% 50%,rgba(201,168,76,0.09) 0%,transparent 65%),
+             radial-gradient(ellipse 40% 60% at 5% 80%,rgba(201,168,76,0.05) 0%,transparent 55%),#0e0c0a;}
+.hero-vline{position:absolute;top:-10%;right:14%;width:1px;height:120%;background:linear-gradient(to bottom,transparent,var(--gold),transparent);opacity:0.13;animation:vdrift 9s ease-in-out infinite alternate;}
+.hero-vline2{position:absolute;top:-10%;right:42%;width:1px;height:120%;background:linear-gradient(to bottom,transparent,var(--gold) 60%,transparent);opacity:0.06;animation:vdrift 13s ease-in-out infinite alternate-reverse;}
+@keyframes vdrift{from{transform:translateY(-3%)}to{transform:translateY(3%)}}
+.hero-bg-logo{position:absolute;right:-2%;top:50%;transform:translateY(-50%);width:min(52vw,640px);opacity:0.055;pointer-events:none;}
+.hero-bg-logo img{width:100%;height:100%;object-fit:contain;}
+.hero-content{position:relative;z-index:1;max-width:680px;}
+.hero-eyebrow{font-family:var(--ff-sans);font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:22px;display:flex;align-items:center;gap:14px;opacity:0;animation:fadeUp 0.9s ease 0.3s forwards;}
+.hero-eyebrow::before{content:'';width:36px;height:1px;background:var(--gold);}
+.hero-title{font-family:var(--ff-head);font-size:clamp(48px,6.5vw,90px);font-weight:300;line-height:1.05;color:var(--cream);opacity:0;animation:fadeUp 0.9s ease 0.5s forwards;}
+.hero-title em{font-style:italic;color:var(--gold);}
+.hero-title strong{font-weight:600;}
+.hero-sub{font-size:16px;font-weight:300;color:rgba(245,240,232,0.52);line-height:1.85;margin-top:24px;max-width:500px;opacity:0;animation:fadeUp 0.9s ease 0.7s forwards;}
+.hero-btns{display:flex;gap:16px;margin-top:44px;opacity:0;animation:fadeUp 0.9s ease 0.9s forwards;flex-wrap:wrap;}
+.btn-gold{font-family:var(--ff-sans);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px 34px;background:var(--gold);color:var(--ink);text-decoration:none;transition:all 0.2s;}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(201,168,76,0.28);}
+.btn-ghost{font-family:var(--ff-sans);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px 34px;border:1px solid rgba(245,240,232,0.18);color:var(--cream);text-decoration:none;transition:all 0.2s;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.hero-stats{display:flex;gap:44px;margin-top:64px;padding-top:36px;border-top:1px solid var(--border);opacity:0;animation:fadeUp 0.9s ease 1.1s forwards;flex-wrap:wrap;}
+.stat-n{font-family:var(--ff-head);font-size:40px;font-weight:600;color:var(--gold);line-height:1;}
+.stat-l{font-family:var(--ff-sans);font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,0.35);margin-top:5px;}
+.scroll-cue{position:absolute;bottom:36px;left:56px;z-index:1;display:flex;align-items:center;gap:12px;opacity:0;animation:fadeUp 0.9s ease 1.3s forwards;}
+.scroll-line{width:1px;height:54px;background:linear-gradient(to bottom,transparent,var(--gold));animation:spulse 2s ease-in-out infinite;}
+@keyframes spulse{0%,100%{opacity:0.3}50%{opacity:1}}
+.scroll-txt{font-family:var(--ff-sans);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,240,232,0.3);writing-mode:vertical-lr;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, var(--preto) 0%, #1a1a1a 50%, #2a1500 100%);
-    color: var(--branco);
-    text-align: center;
-    padding: 56px 24px 48px;
-    position: relative;
-    overflow: hidden;
-  }
+/* MARQUEE */
+.mq-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 0;overflow:hidden;background:rgba(201,168,76,0.025);}
+.mq-track{display:flex;animation:mq 28s linear infinite;width:max-content;}
+.mq-item{font-family:var(--ff-head);font-size:20px;font-style:italic;color:rgba(201,168,76,0.45);white-space:nowrap;padding:0 36px;display:flex;align-items:center;gap:36px;}
+.mq-item::after{content:'✦';font-size:12px;color:var(--gold);}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -60px; left: 50%;
-    transform: translateX(-50%);
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
-    pointer-events: none;
-  }
+/* SECTIONS */
+.sec{padding:120px 56px;}
+.sec-alt{background:var(--ink2);}
+.sec-label{font-family:var(--ff-sans);font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.sec-title{font-family:var(--ff-head);font-size:clamp(36px,4vw,56px);font-weight:300;line-height:1.1;color:var(--cream);}
+.sec-title em{font-style:italic;color:var(--gold);}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:72px;flex-wrap:wrap;gap:20px;}
+.sh-num{font-family:var(--ff-head);font-size:72px;font-weight:300;color:transparent;-webkit-text-stroke:1px var(--border);line-height:1;}
 
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 6vw, 3.2rem);
-    font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 14px;
-  }
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;}
+.about-body{font-size:16px;font-weight:300;line-height:1.9;color:rgba(245,240,232,0.58);margin-top:24px;}
+.about-body p+p{margin-top:14px;}
+.about-sig{margin-top:36px;font-family:var(--ff-head);font-size:28px;font-style:italic;color:var(--gold);}
+.about-img-box{width:100%;aspect-ratio:3/4;border:1px solid var(--border);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--ink);}
+.about-img-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(201,168,76,0.1),transparent 70%);}
+.about-img-box img.logo-display{width:75%;height:75%;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 0 40px rgba(201,168,76,0.18));}
+.about-img-box img.photo-display{width:100%;height:100%;object-fit:cover;object-position:top;position:relative;z-index:1;}
+.about-corner{position:absolute;width:52px;height:52px;z-index:2;}
+.about-corner.tl{top:-1px;left:-1px;border-top:1px solid var(--gold);border-left:1px solid var(--gold);}
+.about-corner.br{bottom:-1px;right:-1px;border-bottom:1px solid var(--gold);border-right:1px solid var(--gold);}
+.about-badge{position:absolute;bottom:24px;left:24px;background:var(--gold);color:var(--ink);font-family:var(--ff-sans);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:9px 16px;z-index:3;}
+.photo-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;position:relative;z-index:1;}
+.photo-placeholder .ph-icon{width:80px;height:80px;border:2px dashed rgba(201,168,76,0.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;}
+.photo-placeholder .ph-label{font-family:var(--ff-sans);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(201,168,76,0.6);text-align:center;}
+.photo-upload-btn{font-family:var(--ff-sans);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;border:1px solid rgba(201,168,76,0.5);color:rgba(201,168,76,0.8);cursor:pointer;background:transparent;transition:all 0.2s;}
+.photo-upload-btn:hover{background:var(--gold);color:var(--ink);border-color:var(--gold);}
 
-  .hero h1 em {
-    color: var(--ouro);
-    font-style: normal;
-  }
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.svc-card{background:var(--ink2);padding:44px 32px;position:relative;overflow:hidden;transition:background 0.3s;cursor:default;}
+.svc-card:hover{background:#131008;}
+.svc-card:hover .svc-arrow{transform:translate(4px,-4px);color:var(--gold);}
+.svc-card:hover .svc-bar{opacity:1;transform:scaleX(1);}
+.svc-num{font-family:var(--ff-head);font-size:12px;font-style:italic;color:var(--gold);opacity:0.55;margin-bottom:24px;}
+.svc-icon{font-size:28px;margin-bottom:16px;}
+.svc-name{font-family:var(--ff-head);font-size:24px;color:var(--cream);margin-bottom:14px;line-height:1.2;}
+.svc-desc{font-size:13px;font-weight:300;line-height:1.85;color:rgba(245,240,232,0.42);}
+.svc-arrow{position:absolute;top:32px;right:32px;font-size:16px;color:rgba(245,240,232,0.18);transition:transform 0.25s,color 0.25s;}
+.svc-bar{position:absolute;bottom:0;left:32px;right:32px;height:1px;background:linear-gradient(to right,var(--gold),transparent);opacity:0;transform:scaleX(0);transform-origin:left;transition:opacity 0.35s,transform 0.5s;}
 
-  .hero p {
-    color: rgba(255,255,255,0.65);
-    font-size: 1rem;
-    max-width: 460px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
+/* PROJECTS */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:72px;}
+.proj-card{background:var(--ink);padding:36px 32px;position:relative;overflow:hidden;transition:background 0.3s;}
+.proj-card:hover{background:#0a0806;}
+.proj-img-wrap{width:100%;height:200px;overflow:hidden;margin-bottom:24px;border:1px solid var(--border);background:var(--ink2);display:flex;align-items:center;justify-content:center;}
+.proj-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
+.proj-img-wrap img.contain{object-fit:contain;padding:16px;}
+.proj-card:hover .proj-img-wrap img{transform:scale(1.04);}
+.proj-tag{font-family:var(--ff-sans);font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.proj-name{font-family:var(--ff-head);font-size:28px;font-weight:400;color:var(--cream);margin-bottom:10px;}
+.proj-desc{font-size:13px;font-weight:300;line-height:1.8;color:rgba(245,240,232,0.45);}
 
-  .passos {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 32px;
-    flex-wrap: wrap;
-  }
+/* SAFT full width card */
+.proj-card.full-width{grid-column:1/-1;display:grid;grid-template-columns:260px 1fr;gap:36px;align-items:center;}
+.proj-card.full-width .proj-img-wrap{height:220px;margin-bottom:0;}
+.proj-card.full-width .proj-img-wrap img{object-fit:contain;padding:12px;width:100%;height:100%;}
 
-  .passo {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(201,168,76,0.3);
-    color: rgba(255,255,255,0.8);
-    padding: 8px 18px;
-    border-radius: 24px;
-    font-size: 0.82rem;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-  }
+/* PROCESS */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-top:72px;}
+.proc-step{position:relative;}
+.proc-step::after{content:'';position:absolute;top:26px;right:-20px;left:calc(100% - 20px);height:1px;background:linear-gradient(to right,var(--gold),transparent);opacity:0.25;}
+.proc-step:last-child::after{display:none;}
+.proc-n{font-family:var(--ff-head);font-size:56px;font-weight:300;color:transparent;-webkit-text-stroke:1px rgba(201,168,76,0.2);line-height:1;margin-bottom:10px;}
+.proc-name{font-family:var(--ff-head);font-size:20px;color:var(--cream);margin-bottom:10px;}
+.proc-desc{font-size:13px;font-weight:300;line-height:1.85;color:rgba(245,240,232,0.42);}
 
-  .passo .num {
-    background: var(--ouro);
-    color: var(--preto);
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.72rem;
-    flex-shrink: 0;
-  }
+/* CTA BAND */
+.cta-band{padding:110px 56px;background:var(--gold);text-align:center;position:relative;overflow:hidden;}
+.cta-band::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 38px,rgba(0,0,0,0.04) 38px,rgba(0,0,0,0.04) 39px);}
+.cta-label{font-family:var(--ff-sans);font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(14,12,10,0.45);margin-bottom:18px;position:relative;}
+.cta-title{font-family:var(--ff-head);font-size:clamp(40px,6vw,76px);font-weight:300;line-height:1.1;color:var(--ink);position:relative;}
+.cta-title em{font-style:italic;}
+.cta-sub{font-size:16px;font-weight:300;color:rgba(14,12,10,0.6);margin:20px auto 44px;max-width:460px;line-height:1.8;position:relative;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;}
+.btn-dark{font-family:var(--ff-sans);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px 32px;background:var(--ink);color:var(--gold);text-decoration:none;transition:opacity 0.2s;}
+.btn-dark:hover{opacity:0.85;}
+.btn-ol-dark{font-family:var(--ff-sans);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px 32px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;transition:all 0.2s;}
+.btn-ol-dark:hover{background:var(--ink);color:var(--gold);}
 
-  /* MAIN */
-  main {
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 32px 16px 60px;
-  }
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start;}
+.contact-title{font-family:var(--ff-head);font-size:clamp(34px,4vw,52px);font-weight:300;line-height:1.15;color:var(--cream);margin-bottom:44px;}
+.contact-title em{font-style:italic;color:var(--gold);}
+.c-items{display:flex;flex-direction:column;gap:24px;}
+.c-item{display:flex;gap:16px;align-items:flex-start;}
+.c-icon{width:44px;height:44px;flex-shrink:0;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--gold);}
+.c-lbl{font-family:var(--ff-sans);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+.c-val{font-size:14px;color:rgba(245,240,232,0.78);line-height:1.6;}
+.c-val a{color:inherit;text-decoration:none;transition:color 0.2s;}
+.c-val a:hover{color:var(--gold);}
+.map-wrap{width:100%;height:300px;border:1px solid var(--border);overflow:hidden;margin-top:44px;position:relative;}
 
-  /* FORMULÁRIO */
-  .form-card {
-    background: var(--branco);
-    border-radius: 20px;
-    box-shadow: var(--sombra);
-    overflow: hidden;
-    margin-bottom: 28px;
-  }
+.map-label{position:absolute;bottom:0;left:0;background:var(--gold);color:var(--ink);font-family:var(--ff-sans);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;}
+.c-form{display:flex;flex-direction:column;gap:16px;}
+.cf-g{display:flex;flex-direction:column;gap:5px;}
+.cf-l{font-family:var(--ff-sans);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.cf-i,.cf-ta{background:var(--ink2);border:1px solid var(--border);padding:12px 16px;font-family:var(--ff-body);font-size:13px;color:var(--cream);outline:none;transition:border-color 0.2s;width:100%;}
+.cf-i:focus,.cf-ta:focus{border-color:var(--gold);}
+.cf-ta{min-height:110px;resize:vertical;}
+.cf-sub{font-family:var(--ff-sans);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 30px;background:var(--gold);color:var(--ink);border:none;cursor:pointer;align-self:flex-start;transition:all 0.2s;}
+.cf-sub:hover{opacity:0.87;transform:translateY(-2px);}
 
-  .form-secao {
-    padding: 24px 28px;
-    border-bottom: 1px solid rgba(0,0,0,0.07);
-  }
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:44px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+.footer-logo{display:flex;align-items:center;gap:10px;}
+.footer-logo img{width:38px;height:38px;object-fit:contain;border-radius:50%;}
+.footer-logo-txt{font-family:var(--ff-head);font-size:16px;font-weight:600;color:var(--cream);line-height:1.2;}
+.footer-logo-txt span{color:var(--gold);font-style:italic;font-size:13px;}
+.footer-copy{font-size:12px;color:var(--muted);}
+.footer-links{display:flex;gap:24px;list-style:none;}
+.footer-links a{font-family:var(--ff-sans);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--gold);}
 
-  .form-secao:last-child { border-bottom: none; }
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}.d4{transition-delay:0.4s}
 
-  .secao-titulo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--preto);
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .secao-titulo .icone {
-    width: 32px; height: 32px;
-    background: var(--preto);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-  }
-
-  .grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
-
-  .grid-1 { display: grid; gap: 14px; }
-
-  @media (max-width: 600px) {
-    .grid-2 { grid-template-columns: 1fr; }
-    .form-secao { padding: 20px 18px; }
-  }
-
-  .campo {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .campo label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--cinza-medio);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .campo input,
-  .campo select,
-  .campo textarea {
-    background: var(--cinza);
-    border: 1.5px solid transparent;
-    border-radius: 10px;
-    padding: 11px 14px;
-    font-size: 0.92rem;
-    font-family: 'DM Sans', sans-serif;
-    color: var(--preto);
-    transition: all 0.2s;
-    outline: none;
-    width: 100%;
-  }
-
-  .campo input:focus,
-  .campo select:focus,
-  .campo textarea:focus {
-    border-color: var(--ouro);
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
-  }
-
-  .campo textarea { min-height: 80px; resize: vertical; }
-
-  .campo select {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    padding-right: 36px;
-  }
-
-  .obrigatorio { color: var(--vermelho); margin-left: 2px; }
-
-  /* BOTÃO */
-  .btn-gerar {
-    width: 100%;
-    background: var(--preto);
-    color: var(--branco);
-    border: none;
-    border-radius: 14px;
-    padding: 18px 32px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.25s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    position: relative;
-    overflow: hidden;
-    letter-spacing: 0.3px;
-  }
-
-  .btn-gerar::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--ouro) 0%, var(--vermelho) 100%);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .btn-gerar:hover::before { opacity: 1; }
-  .btn-gerar span, .btn-gerar svg { position: relative; z-index: 1; }
-
-  .btn-gerar:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
-  .btn-gerar:active { transform: translateY(0); }
-  .btn-gerar:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-  /* LOADING */
-  .loading {
-    display: none;
-    text-align: center;
-    padding: 48px 24px;
-    background: var(--branco);
-    border-radius: 20px;
-    box-shadow: var(--sombra);
-    margin-bottom: 28px;
-  }
-
-  .loading.ativo { display: block; }
-
-  .spinner {
-    width: 48px; height: 48px;
-    border: 3px solid var(--cinza);
-    border-top-color: var(--ouro);
-    border-radius: 50%;
-    animation: spin 0.9s linear infinite;
-    margin: 0 auto 20px;
-  }
-
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  .loading h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-  }
-
-  .loading p { color: var(--cinza-medio); font-size: 0.88rem; }
-
-  /* RESULTADO */
-  .resultado {
-    display: none;
-    background: var(--branco);
-    border-radius: 20px;
-    box-shadow: var(--sombra);
-    overflow: hidden;
-    margin-bottom: 28px;
-    animation: aparecer 0.4s ease;
-  }
-
-  @keyframes aparecer {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .resultado.ativo { display: block; }
-
-  .resultado-header {
-    background: var(--preto);
-    color: var(--branco);
-    padding: 18px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .resultado-header h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .acoes {
-    display: flex;
-    gap: 8px;
-  }
-
-  .btn-acao {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: white;
-    padding: 7px 14px;
-    border-radius: 8px;
-    font-size: 0.8rem;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .btn-acao:hover { background: rgba(255,255,255,0.22); }
-
-  .btn-acao.ouro {
-    background: var(--ouro);
-    border-color: var(--ouro);
-    color: var(--preto);
-  }
-
-  .btn-acao.ouro:hover { background: var(--ouro-claro); }
-
-  .resultado-corpo {
-    padding: 32px;
-    display: flex;
-    justify-content: center;
-    background: repeating-conic-gradient(#e8e6e1 0% 25%, var(--cinza) 0% 50%) 0 0 / 20px 20px;
-    min-height: 200px;
-    align-items: center;
-  }
-
-  #rotulo-preview {
-    background: white;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
-    max-width: 420px;
-    width: 100%;
-  }
-
-  /* ERRO */
-  .erro {
-    display: none;
-    background: #fff5f5;
-    border: 1.5px solid #ffcccc;
-    border-radius: 14px;
-    padding: 20px 24px;
-    margin-bottom: 28px;
-    color: var(--vermelho);
-    font-size: 0.9rem;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .erro.ativo { display: flex; }
-
-  /* FOOTER */
-  footer {
-    text-align: center;
-    padding: 32px 16px;
-    color: var(--cinza-medio);
-    font-size: 0.8rem;
-    border-top: 1px solid rgba(0,0,0,0.08);
-  }
-
-  footer strong { color: var(--preto); }
-</style>
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:16px 20px;} nav.scrolled{padding:10px 20px;} .nav-links,.nav-cta{display:none;}
+  #hero,.sec,.cta-band,footer{padding:80px 20px;}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:44px;}
+  .svc-grid{grid-template-columns:1fr;}
+  .proj-grid{grid-template-columns:1fr;}
+  .proj-card.full-width{grid-column:1;display:block;}
+  .proj-card.full-width .proj-img-wrap{height:200px;margin-bottom:24px;}
+  .proc-grid{grid-template-columns:1fr 1fr;}
+  .proc-step::after{display:none;}
+  .hero-stats{gap:24px;}
+  .sh{flex-direction:column;align-items:flex-start;}
+}
+</style><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/><style>#map{width:100%;height:380px;border:1px solid rgba(201,168,76,0.25);margin-top:32px;display:block;}.leaflet-tile{filter:brightness(2.5) saturate(0.9) contrast(0.8);}.leaflet-container{background:#0e0c0a!important;}.map-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:16px 20px;background:#1c1812;border:1px solid rgba(201,168,76,0.2);border-top:none;}.map-addr{font-size:13px;color:rgba(245,240,232,0.65);line-height:1.6;}.map-addr strong{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#c9a84c;margin-bottom:4px;}.map-goto{background:#c9a84c;color:#0e0c0a;padding:10px 20px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;}</style>
 </head>
 <body>
 
-<header>
-  <div class="logo">Rótulos<span>AO</span></div>
-  <div class="badge">🇦🇴 Angola</div>
-</header>
 
-<div class="hero">
-  <h1>Rótulos <em>Profissionais</em><br>com Inteligência Artificial</h1>
-  <p>Cria rótulos únicos e personalizados para o teu produto angolano em segundos.</p>
-  <div class="passos">
-    <div class="passo"><span class="num">1</span> Preenche os dados</div>
-    <div class="passo"><span class="num">2</span> A IA gera o rótulo</div>
-    <div class="passo"><span class="num">3</span> Descarregas e imprimes</div>
+
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <img src="images/logo-main.png" alt="João Luís Marketing e Serviços">
+    <div class="nav-logo-text">João Luís<span>Marketing e Serviços</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos-detalhados">Serviços</a></li>
+    <li><a href="#projectos">Projectos</a></li>
+    <li><a href="#processo">Processo</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="https://wa.me/244954157826" target="_blank" class="nav-cta">💬 WhatsApp</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-vline"></div>
+  <div class="hero-vline2"></div>
+  <div class="hero-bg-logo"><img src="images/logo-main.png" alt=""></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Luanda, Angola · Profissional</div>
+    <h1 class="hero-title">
+      Soluções digitais<br>que fazem<br><em>Angola crescer.</em>
+    </h1>
+    <p class="hero-sub">Marketing, automação, apps e presença online para empresas angolanas que recusam ser esquecidas.</p>
+    <div class="hero-btns">
+      <a href="#servicos-detalhados" class="btn-gold">Ver serviços</a>
+      <a href="#projectos" class="btn-ghost">Os nossos projectos</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-n" id="c1">0</div><div class="stat-l">Projectos lançados</div></div>
+      <div><div class="stat-n" id="c2">0</div><div class="stat-l">Clientes satisfeitos</div></div>
+      <div><div class="stat-n" id="c3">0</div><div class="stat-l">Anos de experiência</div></div>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <div class="scroll-line"></div>
+    <span class="scroll-txt">Descer</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq-wrap">
+  <div class="mq-track">
+    <div class="mq-item">Marketing Digital</div><div class="mq-item">Desenvolvimento de Apps</div>
+    <div class="mq-item">Automação de Negócios</div><div class="mq-item">Presença Online</div>
+    <div class="mq-item">Cartão de Visita Digital</div><div class="mq-item">Identidade Visual</div>
+    <div class="mq-item">Luanda Motors</div><div class="mq-item">ImóveisAngola</div>
+    <div class="mq-item">LuandaShop</div><div class="mq-item">SAFT Scan</div>
+    <div class="mq-item">Marketing Digital</div><div class="mq-item">Desenvolvimento de Apps</div>
+    <div class="mq-item">Automação de Negócios</div><div class="mq-item">Presença Online</div>
+    <div class="mq-item">Cartão de Visita Digital</div><div class="mq-item">Identidade Visual</div>
+    <div class="mq-item">Luanda Motors</div><div class="mq-item">ImóveisAngola</div>
+    <div class="mq-item">LuandaShop</div><div class="mq-item">SAFT Scan</div>
   </div>
 </div>
 
-<main>
-
-  <!-- FORMULÁRIO -->
-  <form id="form-rotulo" onsubmit="return false;">
-
-    <!-- DADOS DO CLIENTE -->
-    <div class="form-card">
-      <div class="form-secao">
-        <div class="secao-titulo">
-          <div class="icone">👤</div>
-          Dados do Cliente
-        </div>
-        <div class="grid-2">
-          <div class="campo">
-            <label>Nome completo <span class="obrigatorio">*</span></label>
-            <input type="text" id="nomeCliente" placeholder="Ex: João Silva" required>
-          </div>
-          <div class="campo">
-            <label>Contacto (WhatsApp) <span class="obrigatorio">*</span></label>
-            <input type="text" id="contactoCliente" placeholder="Ex: +244 9XX XXX XXX" required>
-          </div>
-        </div>
+<!-- SOBRE -->
+<section id="sobre" class="sec">
+  <div class="about-grid">
+    <div>
+      <div class="sec-label reveal">Sobre nós</div>
+      <h2 class="sec-title reveal d1">Uma empresa.<br>Uma <em>missão.</em></h2>
+      <div class="about-body reveal d2">
+        <p>A João Luís Marketing e Serviços cria soluções digitais para empresas em Angola, com foco em marketing, automação, apps e presença online.</p>
+        <p>Desenvolvemos projectos de referência como Luanda Motors, ImóveisAngola, LuandaShop e SAFT Scan — plataformas que estão a transformar o mercado angolano.</p>
+        <p>Com sede na Avenida Ngola Kiluanje, Luanda, trabalhamos com empresas de todos os tamanhos que querem crescer no ambiente digital.</p>
       </div>
-
-      <!-- DADOS DO PRODUTO -->
-      <div class="form-secao">
-        <div class="secao-titulo">
-          <div class="icone">📦</div>
-          Dados do Produto
+      <div class="about-sig reveal d3">João Luís</div>
+    </div>
+    <div class="reveal d2">
+      <div class="about-img-box" id="about-img-box" style="position:relative;overflow:hidden;">
+        <div class="about-corner tl"></div>
+        <div class="about-corner br"></div>
+        <img src="images/ceo.jpg" class="photo-display" alt="João Luís — Director Geral" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;">
+          
+          
+          
         </div>
-        <div class="grid-2">
-          <div class="campo">
-            <label>Nome do produto <span class="obrigatorio">*</span></label>
-            <input type="text" id="nomeProduto" placeholder="Ex: Sumo de Múcua" required>
-          </div>
-          <div class="campo">
-            <label>Nome da marca <span class="obrigatorio">*</span></label>
-            <input type="text" id="nomeMarca" placeholder="Ex: Sabores de Angola" required>
-          </div>
-          <div class="campo">
-            <label>Categoria <span class="obrigatorio">*</span></label>
-            <select id="categoria" required>
-              <option value="">Selecciona...</option>
-              <option>Bebida / Sumo</option>
-              <option>Água</option>
-              <option>Alimento / Condimento</option>
-              <option>Cosmético / Beleza</option>
-              <option>Higiene e Limpeza</option>
-              <option>Produto Natural / Ervas</option>
-              <option>Azeite / Óleo</option>
-              <option>Mel e Derivados</option>
-              <option>Artesanato</option>
-              <option>Outro</option>
-            </select>
-          </div>
-          <div class="campo">
-            <label>Volume / Peso / Quantidade</label>
-            <input type="text" id="quantidade" placeholder="Ex: 500ml, 1kg, 250g">
-          </div>
-          <div class="campo">
-            <label>Validade</label>
-            <input type="text" id="validade" placeholder="Ex: 12 meses após fabricação">
-          </div>
-          <div class="campo">
-            <label>Fabricado em</label>
-            <input type="text" id="fabricado" placeholder="Ex: Luanda, Angola">
-          </div>
-        </div>
-        <div class="grid-1" style="margin-top:14px">
-          <div class="campo">
-            <label>Ingredientes / Composição</label>
-            <textarea id="ingredientes" placeholder="Ex: Múcua, água purificada, açúcar..."></textarea>
-          </div>
-          <div class="campo">
-            <label>Modo de uso / Conservação</label>
-            <input type="text" id="modoUso" placeholder="Ex: Conservar em lugar fresco e seco">
-          </div>
-        </div>
-      </div>
-
-      <!-- IDENTIDADE VISUAL -->
-      <div class="form-secao">
-        <div class="secao-titulo">
-          <div class="icone">🎨</div>
-          Identidade Visual
-        </div>
-        <div class="grid-2">
-          <div class="campo">
-            <label>Cores preferidas <span class="obrigatorio">*</span></label>
-            <select id="cores" required>
-              <option value="">Selecciona...</option>
-              <option>Vermelho e dourado</option>
-              <option>Verde e amarelo</option>
-              <option>Preto e dourado (luxo)</option>
-              <option>Azul e branco</option>
-              <option>Laranja e castanho</option>
-              <option>Rosa e roxo</option>
-              <option>Verde e branco (natural)</option>
-              <option>Vermelho e branco</option>
-              <option>Dourado e creme</option>
-              <option>Cores da bandeira de Angola</option>
-            </select>
-          </div>
-          <div class="campo">
-            <label>Estilo visual <span class="obrigatorio">*</span></label>
-            <select id="estilo" required>
-              <option value="">Selecciona...</option>
-              <option>Moderno e minimalista</option>
-              <option>Tradicional angolano</option>
-              <option>Luxo e elegante</option>
-              <option>Natural e orgânico</option>
-              <option>Divertido e colorido</option>
-              <option>Profissional e corporativo</option>
-              <option>Artesanal e rústico</option>
-              <option>Tropical e vibrante</option>
-            </select>
-          </div>
-          <div class="campo">
-            <label>Slogan da marca</label>
-            <input type="text" id="slogan" placeholder="Ex: O sabor da nossa terra">
-          </div>
-          <div class="campo">
-            <label>Tipo de embalagem</label>
-            <select id="tipoEmbalagem">
-              <option value="">Selecciona...</option>
-              <option>Garrafa plástica</option>
-              <option>Garrafa de vidro</option>
-              <option>Frasco</option>
-              <option>Saco / Bolsa</option>
-              <option>Caixa</option>
-              <option>Bisnaga</option>
-              <option>Lata</option>
-              <option>Pote / Bidon</option>
-            </select>
-          </div>
-        </div>
-        <div class="grid-2" style="margin-top:14px">
-          <div class="campo">
-            <label>Tamanho do rótulo</label>
-            <input type="text" id="tamanho" placeholder="Ex: 10cm x 7cm">
-          </div>
-        </div>
-      </div>
-
-      <!-- INFORMAÇÕES LEGAIS -->
-      <div class="form-secao">
-        <div class="secao-titulo">
-          <div class="icone">📋</div>
-          Informações Legais (opcional)
-        </div>
-        <div class="grid-2">
-          <div class="campo">
-            <label>NIF do fabricante</label>
-            <input type="text" id="nif" placeholder="Ex: 5417XXXXXXX">
-          </div>
-          <div class="campo">
-            <label>Contacto no rótulo</label>
-            <input type="text" id="contacto" placeholder="Ex: +244 9XX XXX XXX">
-          </div>
-          <div class="campo" style="grid-column: 1/-1">
-            <label>Endereço</label>
-            <input type="text" id="endereco" placeholder="Ex: Luanda, Angola">
-          </div>
-        </div>
+        <div class="about-badge">CEO & Fundador · Luanda</div>
       </div>
     </div>
-
-    <!-- BOTÃO GERAR -->
-    <button class="btn-gerar" onclick="gerarRotulo()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-      </svg>
-      <span>Gerar Rótulo com IA</span>
-    </button>
-  </form>
-
-  <!-- LOADING -->
-  <div class="loading" id="loading">
-    <div class="spinner"></div>
-    <h3>A criar o teu rótulo...</h3>
-    <p>A inteligência artificial está a trabalhar. Aguarda alguns segundos.</p>
   </div>
+</section>
 
-  <!-- ERRO -->
-  <div class="erro" id="erro">
-    <span>⚠️</span>
-    <span id="erro-msg">Ocorreu um erro. Tenta novamente.</span>
+
+
+<!-- PROJECTOS -->
+<section id="projectos" class="sec">
+  <div class="sh">
+    <div>
+      <div class="sec-label reveal">Casos reais</div>
+      <h2 class="sec-title reveal d1">Os nossos<br><em>projectos</em></h2>
+    </div>
+    <div class="sh-num reveal">05</div>
   </div>
-
-  <!-- RESULTADO -->
-  <div class="resultado" id="resultado">
-    <div class="resultado-header">
-      <h3>✅ Rótulo Gerado com Sucesso</h3>
-      <div class="acoes">
-        <button class="btn-acao" onclick="copiarHTML()">📋 Copiar HTML</button>
-        <button class="btn-acao ouro" onclick="imprimir()">🖨️ Imprimir</button>
+  <div class="proj-grid">
+    <div class="proj-card reveal">
+      <div class="proj-img-wrap">
+        <img src="images/logo-luandashop.png" alt="LuandaShop Marketplace" class="contain">
+      </div>
+      <div class="proj-tag">Marketplace · E-commerce</div>
+      <h3 class="proj-name">LuandaShop</h3>
+      <p class="proj-desc">Plataforma premium de compras online para o mercado angolano — moda, tecnologia, acessórios e muito mais.</p>
+    </div>
+    <div class="proj-card reveal d1">
+      <div class="proj-img-wrap" style="background:linear-gradient(135deg,#0d0d1a,#1a0a2e);">
+        <img src="images/logo-luandashop.png" alt="LuandaShop Área do Cliente" class="contain" style="opacity:0.75;">
+      </div>
+      <div class="proj-tag">Plataforma · Área do Cliente</div>
+      <h3 class="proj-name">LuandaShop <em style="font-style:italic;color:var(--gold);font-size:20px;">Cliente</em></h3>
+      <p class="proj-desc">Portal exclusivo do cliente LuandaShop — gestão de encomendas, histórico de compras e perfil personalizado.</p>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-img-wrap">
+        <img src="images/logo-imoveisangola.jpg" alt="ImóveisAngola">
+      </div>
+      <div class="proj-tag">Plataforma Imobiliária</div>
+      <h3 class="proj-name">ImóveisAngola</h3>
+      <p class="proj-desc">Portal imobiliário para compra, venda e arrendamento de imóveis em Angola com experiência digital premium.</p>
+    </div>
+    <div class="proj-card reveal d1">
+      <div class="proj-img-wrap">
+        <img src="images/logo-motors.jpg" alt="Luanda Motors">
+      </div>
+      <div class="proj-tag">Moto-Táxi · Entregas · Logística Leve</div>
+      <h3 class="proj-name">Luanda Motors</h3>
+      <p class="proj-desc">Plataforma digital de moto-táxi, entregas rápidas e logística leve em Angola. Conecta clientes e motoristas em tempo real, com foco em rapidez, confiança e cobertura em Luanda.</p>
+    </div>
+    <div class="proj-card full-width reveal">
+      <div class="proj-img-wrap">
+        <img src="images/logo-saft.png" alt="SAFT Scan">
+      </div>
+      <div>
+        <div class="proj-tag">App de Contabilidade · Tradutor Fiscal</div>
+        <h3 class="proj-name">SAFT Scan</h3>
+        <p class="proj-desc">Aplicação de digitalização e automação de documentos fiscais para contabilistas angolanos. Traduz ficheiros SAFT entre formatos (PT, EN, ES, FR), detecta erros XML e garante transparência digital nos processos contabilísticos.</p>
       </div>
     </div>
-    <div class="resultado-corpo">
-      <div id="rotulo-preview"></div>
+  </div>
+</section>
+
+
+<!-- SERVIÇOS DETALHADOS -->
+<section id="servicos-detalhados" class="sec">
+  <div class="sh">
+    <div>
+      <div class="sec-label reveal">O que oferecemos</div>
+      <h2 class="sec-title reveal d1">Os nossos<br><em>serviços</em></h2>
+    </div>
+    <div class="sh-num reveal">06</div>
+  </div>
+  <div style="margin-bottom:60px;">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--border);">
+      <span style="font-size:28px;">💼</span>
+      <h3 style="font-family:var(--ff-head);font-size:32px;font-weight:300;color:var(--cream);">Emprego <em style="color:var(--gold);font-style:italic;">&amp; Carreira</em></h3>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal"><div class="svc-num">01</div><div class="svc-icon">📄</div><h3 class="svc-name">CV Profissional</h3><p class="svc-desc">Curriculum vitae elaborado por especialistas, adaptado ao mercado angolano e internacional.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
+      <div class="svc-card reveal d1"><div class="svc-num">02</div><div class="svc-icon">✉️</div><h3 class="svc-name">Cartas Profissionais</h3><p class="svc-desc">Carta de apresentação, motivação e recomendação redigidas com profissionalismo.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
+      <div class="svc-card reveal d2"><div class="svc-num">03</div><div class="svc-icon">🔗</div><h3 class="svc-name">Perfil LinkedIn</h3><p class="svc-desc">Optimização completa do seu perfil LinkedIn para atrair recrutadores nacionais e internacionais.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
+      <div class="svc-card reveal"><div class="svc-num">04</div><div class="svc-icon">🌍</div><h3 class="svc-name">Tradução PT → EN</h3><p class="svc-desc">Tradução profissional de documentos para candidaturas internacionais.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
+      <div class="svc-card reveal d1"><div class="svc-num">05</div><div class="svc-icon">🎯</div><h3 class="svc-name">Candidaturas SEPE</h3><p class="svc-desc">Apoio completo nas candidaturas ao sector público — conta SEPE, curriculum online, CV em PDF e submissão.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
+      <div class="svc-card reveal d2"><div class="svc-num">06</div><div class="svc-icon">🏆</div><h3 class="svc-name">Vagas Nacionais e Internacionais</h3><p class="svc-desc">Identificação de oportunidades de emprego em Angola e no exterior adequadas ao seu perfil.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
     </div>
   </div>
+  <div>
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--border);">
+      <span style="font-size:28px;">🌐</span>
+      <h3 style="font-family:var(--ff-head);font-size:32px;font-weight:300;color:var(--cream);">Digital <em style="color:var(--gold);font-style:italic;">&amp; Tecnologia</em></h3>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal"><div class="svc-num">01</div><div class="svc-icon">💻</div><h3 class="svc-name">Websites e Apps</h3><p class="svc-desc">Desenvolvimento de sites e aplicações móveis para o mercado angolano, optimizados para 4G.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
+      <div class="svc-card reveal d1"><div class="svc-num">02</div><div class="svc-icon">📱</div><h3 class="svc-name">Gestão de Redes Sociais</h3><p class="svc-desc">Gestão profissional das suas redes sociais — conteúdo, crescimento orgânico e patrocínios.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
+      <div class="svc-card reveal d2"><div class="svc-num">03</div><div class="svc-icon">🎬</div><h3 class="svc-name">Vídeos e Flyers</h3><p class="svc-desc">Produção de vídeos publicitários e flyers digitais de alta qualidade para campanhas no mercado angolano.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
+      <div class="svc-card reveal"><div class="svc-num">04</div><div class="svc-icon">🤖</div><h3 class="svc-name">Automação WhatsApp</h3><p class="svc-desc">Sistemas de resposta automática e gestão de clientes via WhatsApp Business.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
+      <div class="svc-card reveal d1"><div class="svc-num">05</div><div class="svc-icon">🚐</div><h3 class="svc-name">Gestão de Frotas GPS</h3><p class="svc-desc">Monitorização e gestão de frotas em tempo real com tecnologia GPS em Luanda e Angola.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
+      
+      <div class="svc-card reveal"><div class="svc-num">07</div><div class="svc-icon">📱</div><h3 class="svc-name">Marketing Digital</h3><p class="svc-desc">Estratégias de marketing online que posicionam a sua marca no digital angolano e geram resultados reais e mensuráveis.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
+      <div class="svc-card reveal d1"><div class="svc-num">08</div><div class="svc-icon">🎨</div><h3 class="svc-name">Identidade Visual</h3><p class="svc-desc">Logos, design gráfico e identidade visual que diferenciam a sua marca e comunicam profissionalismo no mercado angolano.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
+      <div class="svc-card reveal d2"><div class="svc-num">09</div><div class="svc-icon">💳</div><h3 class="svc-name">Cartão de Visita Digital</h3><p class="svc-desc">Cartões digitais premium com QR Code e link partilhável para PMEs que querem impressionar os seus clientes.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
+      
+    </div>
+  </div>
+</section>
 
-</main>
+<!-- PROCESSO -->
+<section id="processo" class="sec sec-alt">
+  <div>
+    <div class="sec-label reveal">Como trabalhamos</div>
+    <h2 class="sec-title reveal d1">O nosso<br><em>processo</em></h2>
+  </div>
+  <div class="proc-grid">
+    <div class="proc-step reveal">
+      <div class="proc-n">01</div><h3 class="proc-name">Descoberta</h3>
+      <p class="proc-desc">Reunimos para entender o seu negócio, objectivos e o mercado angolano onde vai actuar.</p>
+    </div>
+    <div class="proc-step reveal d1">
+      <div class="proc-n">02</div><h3 class="proc-name">Estratégia</h3>
+      <p class="proc-desc">Criamos um plano de acção claro com prazos, tecnologia e orçamento definidos à medida.</p>
+    </div>
+    <div class="proc-step reveal d2">
+      <div class="proc-n">03</div><h3 class="proc-name">Execução</h3>
+      <p class="proc-desc">A equipa implementa com rigor — design, desenvolvimento, marketing e automação de nível profissional.</p>
+    </div>
+    <div class="proc-step reveal d3">
+      <div class="proc-n">04</div><h3 class="proc-name">Resultados</h3>
+      <p class="proc-desc">Entregamos, monitorizamos e optimizamos continuamente para garantir o máximo retorno.</p>
+    </div>
+  </div>
+</section>
 
+<!-- CTA -->
+<div class="cta-band">
+  <div class="cta-label">Próximo passo</div>
+  <h2 class="cta-title">Pronto para<br><em>crescer?</em></h2>
+  <p class="cta-sub">Fale connosco hoje mesmo. Sem letras pequenas — apenas resultados para o seu negócio.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/244954157826" target="_blank" class="btn-dark">💬 WhatsApp agora</a>
+    <a href="mailto:info@jlmarketing.co.ao" class="btn-ol-dark">✉️ Enviar email</a>
+  </div>
+</div>
+
+<!-- CONTACTO -->
+<section id="contacto" class="sec">
+  <div class="contact-grid" style="grid-template-columns:1fr 1fr;">
+    <div>
+      <div class="sec-label reveal">Fale connosco</div>
+      <h2 class="contact-title reveal d1">Vamos<br>trabalhar<br><em>juntos.</em></h2>
+      <div class="c-items">
+        <div class="c-item reveal">
+          <div class="c-icon">📍</div>
+          <div><div class="c-lbl">Morada</div><div class="c-val">Avenida Ngola Kiluanje<br>Luanda, Angola</div></div>
+        </div>
+        <div class="c-item reveal d1">
+          <div class="c-icon">💬</div>
+          <div><div class="c-lbl">WhatsApp</div><div class="c-val"><a href="https://wa.me/244954157826" target="_blank">+244 954 157 826</a></div></div>
+        </div>
+        <div class="c-item reveal d2">
+          <div class="c-icon">📞</div>
+          <div><div class="c-lbl">Telefone</div><div class="c-val"><a href="tel:+244928954573">+244 928 954 573</a></div></div>
+        </div>
+        <div class="c-item reveal d3">
+          <div class="c-icon">✉️</div>
+          <div><div class="c-lbl">Gmail</div><div class="c-val"><a href="mailto:info@jlmarketing.co.ao">info@jlmarketing.co.ao</a></div></div>
+        </div>
+      </div>
+      </div>
+  <div style="padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <div style="color:rgba(245,240,232,0.65);font-size:13px;line-height:1.6;"><span style="display:block;color:#c9a84c;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Localização</span>Avenida Ngola Kiluanje, Luanda</div>
+    <a href="https://maps.google.com/?q=Avenida+Ngola+Kiluanje+Luanda+Angola" target="_blank" style="background:#c9a84c;color:#0e0c0a;padding:11px 20px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;">🗺️ Abrir no Maps</a>
+  </div>
+</div>
+        
+    <div>
+      <form class="c-form" onsubmit="sendForm(event)">
+        <div class="cf-g"><label class="cf-l">Nome completo</label><input class="cf-i" id="fn" placeholder="O seu nome" required></div>
+        <div class="cf-g"><label class="cf-l">Telefone / WhatsApp</label><input class="cf-i" id="fp" placeholder="+244 9xx xxx xxx" required></div>
+        <div class="cf-g"><label class="cf-l">Email</label><input class="cf-i" id="fe" placeholder="email@empresa.ao"></div>
+        <div class="cf-g"><label class="cf-l">Empresa</label><input class="cf-i" id="fc" placeholder="Nome da sua empresa"></div>
+        <div class="cf-g"><label class="cf-l">Mensagem</label><textarea class="cf-ta" id="fm" placeholder="Descreva o seu projecto..." required></textarea></div>
+        <button type="submit" class="cf-sub" id="fsub">Enviar mensagem →</button>
+      </form>
+    </div>
+  </div>
+</section>
+<section style="padding:0 56px 80px;" id="map-section"><div id="map" style="width:100%;height:420px;border:1px solid rgba(201,168,76,0.25);"></div><div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:16px 24px;background:#1c1812;border:1px solid rgba(201,168,76,0.2);border-top:none;"><div style="font-size:13px;color:rgba(245,240,232,0.65);"><span style="display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#c9a84c;margin-bottom:4px;">Localização</span>Avenida Ngola Kiluanje, Luanda</div><a href="https://maps.google.com/?q=-8.8368,13.2343" target="_blank" style="background:#c9a84c;color:#0e0c0a;padding:10px 20px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;">🗺️ Abrir no Maps</a></div></section>
+
+<!-- FOOTER -->
 <footer>
-  Feito com ❤️ em <strong>Angola</strong> · RótulosAO © 2026
+  <div class="footer-logo">
+    <img src="images/logo-main.png" alt="Logo">
+    <div class="footer-logo-txt">João Luís<span>Marketing e Serviços</span></div>
+  </div>
+  <p class="footer-copy">© 2026 João Luís Marketing e Serviços · Luanda, Angola</p>
+  <ul class="footer-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos-detalhados">Serviços</a></li>
+    <li><a href="#projectos">Projectos</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
 </footer>
 
 <script>
-  function obterDados() {
-    return {
-      nomeCliente: document.getElementById('nomeCliente').value,
-      contactoCliente: document.getElementById('contactoCliente').value,
-      nomeProduto: document.getElementById('nomeProduto').value,
-      nomeMarca: document.getElementById('nomeMarca').value,
-      categoria: document.getElementById('categoria').value,
-      quantidade: document.getElementById('quantidade').value || 'Não especificado',
-      validade: document.getElementById('validade').value || 'Ver embalagem',
-      fabricado: document.getElementById('fabricado').value || 'Angola',
-      ingredientes: document.getElementById('ingredientes').value || 'Não especificado',
-      modoUso: document.getElementById('modoUso').value || 'Não especificado',
-      cores: document.getElementById('cores').value,
-      estilo: document.getElementById('estilo').value,
-      slogan: document.getElementById('slogan').value || '',
-      tipoEmbalagem: document.getElementById('tipoEmbalagem').value || 'Não especificado',
-      tamanho: document.getElementById('tamanho').value || '10cm x 7cm',
-      nif: document.getElementById('nif').value || 'N/A',
-      contacto: document.getElementById('contacto').value || 'N/A',
-      endereco: document.getElementById('endereco').value || 'Angola'
-    };
-  }
+// Cursor
 
-  function validar(dados) {
-    if (!dados.nomeCliente) return "Preenche o nome do cliente.";
-    if (!dados.contactoCliente) return "Preenche o contacto do cliente.";
-    if (!dados.nomeProduto) return "Preenche o nome do produto.";
-    if (!dados.nomeMarca) return "Preenche o nome da marca.";
-    if (!dados.categoria) return "Selecciona a categoria.";
-    if (!dados.cores) return "Selecciona as cores preferidas.";
-    if (!dados.estilo) return "Selecciona o estilo visual.";
-    return null;
-  }
 
-  function mostrarErro(msg) {
-    const el = document.getElementById('erro');
-    document.getElementById('erro-msg').textContent = msg;
-    el.classList.add('ativo');
-    setTimeout(() => el.classList.remove('ativo'), 5000);
-  }
 
-  function gerarRotulo() {
-    const dados = obterDados();
-    const erro = validar(dados);
-    if (erro) { mostrarErro(erro); return; }
+document.querySelectorAll('a,button,.svc-card,.proj-card').forEach(function(el){
 
-    // Esconde resultado anterior e mostra loading
-    document.getElementById('resultado').classList.remove('ativo');
-    document.getElementById('erro').classList.remove('ativo');
-    document.getElementById('loading').classList.add('ativo');
-    document.querySelector('.btn-gerar').disabled = true;
 
-    // Chama o backend Google Apps Script
-    google.script.run
-      .withSuccessHandler(function(res) {
-        document.getElementById('loading').classList.remove('ativo');
-        document.querySelector('.btn-gerar').disabled = false;
+});
 
-        if (res.sucesso) {
-          document.getElementById('rotulo-preview').innerHTML = res.html;
-          document.getElementById('resultado').classList.add('ativo');
-          document.getElementById('resultado').scrollIntoView({ behavior: 'smooth' });
+// Nav scroll
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',scrollY>60);});
 
-          // Guarda o pedido na folha
-          google.script.run.guardarPedido(dados);
-        } else {
-          mostrarErro(res.erro || 'Erro ao gerar rótulo. Tenta novamente.');
-        }
-      })
-      .withFailureHandler(function(err) {
-        document.getElementById('loading').classList.remove('ativo');
-        document.querySelector('.btn-gerar').disabled = false;
-        mostrarErro('Erro de ligação. Verifica a tua chave API.');
-      })
-      .gerarRotulo(dados);
-  }
+// Counters
+var done=false;
+new IntersectionObserver(function(e){
+  if(e[0].isIntersecting&&!done){done=true;cnt('c1',4);cnt('c2',120);cnt('c3',1);}
+},{threshold:0.3}).observe(document.getElementById('hero'));
+function cnt(id,t){var s=0,step=t/120,ti=setInterval(function(){s=Math.min(s+step,t);document.getElementById(id).textContent=Math.floor(s)+(s>=t?'+':'');if(s>=t)clearInterval(ti);},16);}
 
-  function copiarHTML() {
-    const html = document.getElementById('rotulo-preview').innerHTML;
-    navigator.clipboard.writeText(html).then(() => {
-      alert('HTML copiado! Podes colar num editor para guardar.');
-    });
-  }
+// Reveal on scroll
+document.querySelectorAll('.reveal').forEach(function(r){
+  new IntersectionObserver(function(e){if(e[0].isIntersecting)e[0].target.classList.add('visible');},{threshold:0.1}).observe(r);
+});
 
-  function imprimir() {
-    const conteudo = document.getElementById('rotulo-preview').innerHTML;
-    const janela = window.open('', '_blank');
-    janela.document.write(`
-      <html><head><title>Rótulo</title>
-      <style>body{margin:20px;display:flex;justify-content:center;} @media print{body{margin:0;}}</style>
-      </head><body>${conteudo}</body></html>
-    `);
-    janela.document.close();
-    janela.print();
-  }
+// Photo upload
+function loadPhoto(input){
+  if(!input.files||!input.files[0])return;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var box=document.getElementById('about-img-box');
+    var ph=document.getElementById('photo-ph');
+    var img=document.createElement('img');
+    img.src=e.target.result;
+    img.className='photo-display';
+    img.alt='João Luís';
+    box.replaceChild(img,ph);
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+// Form → WhatsApp
+function sendForm(e){
+  e.preventDefault();
+  var n=document.getElementById('fn').value,p=document.getElementById('fp').value,
+      em=document.getElementById('fe').value,c=document.getElementById('fc').value,
+      m=document.getElementById('fm').value;
+  var msg='Olá João Luís! Contacto pelo site.\n\n*Nome:* '+n+'\n*Telefone:* '+p+(em?'\n*Email:* '+em:'')+(c?'\n*Empresa:* '+c:'')+'\n\n*Mensagem:*\n'+m;
+  window.open('https://wa.me/244954157826?text='+encodeURIComponent(msg),'_blank');
+  var b=document.getElementById('fsub');b.textContent='Enviado! ✓';b.style.background='#2a5c24';b.disabled=true;
+  setTimeout(function(){b.textContent='Enviar mensagem →';b.style.background='';b.disabled=false;e.target.reset();},3000);
+}
 </script>
-</body>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script>var map=L.map("map",{zoomControl:true,scrollWheelZoom:false}).setView([-8.8368,13.2343],16);L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{attribution:"CartoDB",maxZoom:19}).addTo(map);var gi=L.divIcon({html:"<div style=width:32px;height:32px;background:#c9a84c;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #e8c96e;box-shadow:0 4px 16px rgba(201,168,76,0.5)><span style=display:block;transform:rotate(45deg);text-align:center;line-height:28px;font-size:14px>📍</span></div>",iconSize:[32,32],iconAnchor:[16,32],className:""});L.marker([-8.8368,13.2343],{icon:gi}).addTo(map).bindPopup("<strong style=color:#c9a84c>João Luís Marketing e Serviços</strong><br>Av. Ngola Kiluanje, Luanda").openPopup();</script></body>
 </html>
