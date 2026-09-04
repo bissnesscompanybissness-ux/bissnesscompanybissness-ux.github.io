@@ -74,6 +74,15 @@ body::after{
   z-index:10;
 }
 
+.monogram{
+  position:absolute;top:20px;right:24px;z-index:5;
+  font-family:'Cormorant Garamond',serif;
+  font-size:13px;font-style:italic;
+  letter-spacing:1px;
+  color:rgba(196,146,42,0.35);
+  pointer-events:none;
+}
+
 /* ── HERO SECTION ── */
 .hero{
   position:relative;
@@ -90,12 +99,11 @@ body::after{
   margin-bottom:16px;
 }
 .photo-ring{
-  position:absolute;inset:-4px;
+  position:absolute;inset:-3px;
   border-radius:50%;
-  background:conic-gradient(var(--gold) 0deg, var(--gold-light) 90deg, var(--gold) 180deg, rgba(196,146,42,0.2) 270deg, var(--gold) 360deg);
-  animation:ringRotate 8s linear infinite;
+  border:1px solid var(--gold);
+  background:transparent;
 }
-@keyframes ringRotate{to{transform:rotate(360deg);}}
 .photo-ring-inner{
   position:absolute;inset:2px;
   border-radius:50%;
@@ -109,6 +117,13 @@ body::after{
   background-position:top center;
   background-repeat:no-repeat;
   display:block;
+  filter:saturate(0.55) brightness(0.92) contrast(1.05);
+}
+.photo::after{
+  content:'';
+  position:absolute;inset:0;
+  border-radius:50%;
+  background:linear-gradient(180deg,rgba(8,6,4,0.15) 0%,rgba(8,6,4,0.35) 100%);
 }
 
 .logo-badge{
@@ -159,7 +174,7 @@ body::after{
 
 /* ── ABOUT ── */
 .about{
-  padding:24px 32px;
+  padding:28px 32px;
 }
 .section-eyebrow{
   font-family:'Inter',sans-serif;
@@ -182,8 +197,8 @@ body::after{
 
 /* ── CONTACTS ── */
 .contacts{
-  padding:0 32px 8px;
-  display:flex;flex-direction:column;gap:2px;
+  padding:4px 32px 16px;
+  display:flex;flex-direction:column;gap:4px;
 }
 .contact-row{
   display:flex;align-items:center;
@@ -250,10 +265,10 @@ body::after{
 .platforms-row{
   display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;
 }.platform-pill{
-  padding:7px 14px;
+  padding:8px 15px;
   background:rgba(255,255,255,0.02);
   border:1px solid rgba(196,146,42,0.12);
-  border-radius:20px;
+  border-radius:6px;
   font-size:11px;font-weight:500;
   color:rgba(242,237,228,0.55);
   text-decoration:none;
@@ -390,6 +405,8 @@ body::after{
 
 <div class="card">
 
+  <div class="monogram">JL</div>
+
   <!-- HERO -->
   <div class="hero">
     <div class="photo-container">
@@ -459,13 +476,13 @@ body::after{
 
   <div class="divider"></div>
 
-  <div class="platforms" style="padding-top:20px;padding-bottom:20px;">
+  <div class="platforms" style="padding-top:26px;padding-bottom:26px;">
     <div class="section-eyebrow">Plataformas &amp; Redes</div>
     <div class="platforms-row" style="margin-top:10px;">
       <a href="https://luandashop.ao" target="_blank" class="platform-pill active">LuandaShop</a>
       <a href="https://luandamotors.ao" target="_blank" class="platform-pill active">Luanda Motors</a>
       <a href="https://www.facebook.com/profile.php?id=61584301405088" target="_blank" class="platform-pill active">Facebook</a>
-      <a href="#" onclick="partilhar();return false;" class="platform-pill active">Partilhar</a>
+      <a href="#" onclick="partilhar();return false;" class="platform-pill active">WhatsApp</a>
     </div>
   </div>
 
