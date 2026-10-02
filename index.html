@@ -25,6 +25,7 @@
     <li><a href="/#contacto">Contacto</a></li>
   </ul>
   <a href="https://wa.me/244954157826" target="_blank" class="nav-cta">💬 WhatsApp</a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
@@ -62,12 +63,12 @@
     <div class="mq-item">Automação de Negócios</div><div class="mq-item">Presença Online</div>
     <div class="mq-item">Cartão de Visita Digital</div><div class="mq-item">Identidade Visual</div>
     <div class="mq-item">Luanda Motors</div><div class="mq-item">ImóveisAngola</div>
-    <div class="mq-item">LuandaShop</div><div class="mq-item">SAFT Scan</div>
+    <div class="mq-item">LuandaShop</div>
     <div class="mq-item">Marketing Digital</div><div class="mq-item">Desenvolvimento de Apps</div>
     <div class="mq-item">Automação de Negócios</div><div class="mq-item">Presença Online</div>
     <div class="mq-item">Cartão de Visita Digital</div><div class="mq-item">Identidade Visual</div>
     <div class="mq-item">Luanda Motors</div><div class="mq-item">ImóveisAngola</div>
-    <div class="mq-item">LuandaShop</div><div class="mq-item">SAFT Scan</div>
+    <div class="mq-item">LuandaShop</div>
   </div>
 </div>
 
@@ -79,7 +80,7 @@
       <h2 class="sec-title reveal d1">Uma empresa.<br>Uma <em>missão.</em></h2>
       <div class="about-body reveal d2">
         <p>A João Luís Marketing e Serviços cria soluções digitais para empresas em Angola, com foco em marketing, automação, apps e presença online.</p>
-        <p>Desenvolvemos projectos de referência como Luanda Motors, ImóveisAngola, LuandaShop e SAFT Scan — plataformas que estão a transformar o mercado angolano.</p>
+        <p>Desenvolvemos projectos de referência como Luanda Motors, ImóveisAngola e LuandaShop — plataformas que estão a transformar o mercado angolano.</p>
         <p>Com sede na Avenida Ngola Kiluanje, Luanda, trabalhamos com empresas de todos os tamanhos que querem crescer no ambiente digital.</p>
       </div>
       <div class="about-sig reveal d3">João Luís</div>
@@ -102,7 +103,7 @@
       <div class="sec-label reveal">Casos reais</div>
       <h2 class="sec-title reveal d1">Os nossos<br><em>projectos</em></h2>
     </div>
-    <div class="sh-num reveal">05</div>
+    <div class="sh-num reveal">03</div>
   </div>
   <div class="proj-grid">
     <div class="proj-card reveal">
@@ -112,14 +113,6 @@
       <div class="proj-tag">Marketplace · E-commerce</div>
       <h3 class="proj-name">LuandaShop</h3>
       <p class="proj-desc">Plataforma premium de compras online para o mercado angolano — moda, tecnologia, acessórios e muito mais.</p>
-    </div>
-    <div class="proj-card reveal d1">
-      <div class="proj-img-wrap" style="background:linear-gradient(135deg,#0d0d1a,#1a0a2e);">
-        <img src="/static/images/logo-luandashop.png" alt="LuandaShop Área do Cliente" class="contain" style="opacity:0.75;">
-      </div>
-      <div class="proj-tag">Plataforma · Área do Cliente</div>
-      <h3 class="proj-name">LuandaShop <em style="font-style:italic;color:var(--gold);font-size:20px;">Cliente</em></h3>
-      <p class="proj-desc">Portal exclusivo do cliente LuandaShop — gestão de encomendas, histórico de compras e perfil personalizado.</p>
     </div>
     <div class="proj-card reveal">
       <div class="proj-img-wrap">
@@ -136,16 +129,6 @@
       <div class="proj-tag">Moto-Táxi · Entregas · Logística Leve</div>
       <h3 class="proj-name">Luanda Motors</h3>
       <p class="proj-desc">Plataforma digital de moto-táxi, entregas rápidas e logística leve em Angola. Conecta clientes e motoristas em tempo real, com foco em rapidez, confiança e cobertura em Luanda.</p>
-    </div>
-    <div class="proj-card full-width reveal">
-      <div class="proj-img-wrap">
-        <img src="/static/images/logo-saft.png" alt="SAFT Scan">
-      </div>
-      <div>
-        <div class="proj-tag">App de Contabilidade · Tradutor Fiscal</div>
-        <h3 class="proj-name">SAFT Scan</h3>
-        <p class="proj-desc">Aplicação de digitalização e automação de documentos fiscais para contabilistas angolanos. Traduz ficheiros SAFT entre formatos (PT, EN, ES, FR), detecta erros XML e garante transparência digital nos processos contabilísticos.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -169,7 +152,7 @@
     <div class="proj-card reveal d1">
       <div class="proj-tag">6 serviços</div>
       <h3 class="proj-name">Emprego <em style="font-style:italic;color:var(--gold);">&amp; Carreira</em></h3>
-      <p class="proj-desc">CV profissional, perfil LinkedIn, candidaturas SEPE e orientação de carreira.</p>
+      <p class="proj-desc">CV profissional, perfil LinkedIn, preparação para entrevistas e orientação de carreira.</p>
       <p style="margin-top:20px;"><a href="/emprego/" class="btn-ghost" style="display:inline-block;">Ver serviços de carreira →</a></p>
     </div>
   </div>
@@ -260,7 +243,7 @@
 <script>
 var done=false;
 new IntersectionObserver(function(e){
-  if(e[0].isIntersecting&&!done){done=true;cnt('c1',4);cnt('c2',120);cnt('c3',1);}
+  if(e[0].isIntersecting&&!done){done=true;cnt('c1',3);cnt('c2',120);cnt('c3',1);}
 },{threshold:0.3}).observe(document.getElementById('hero'));
 function cnt(id,t){var s=0,step=t/120,ti=setInterval(function(){s=Math.min(s+step,t);document.getElementById(id).textContent=Math.floor(s)+(s>=t?'+':'');if(s>=t)clearInterval(ti);},16);}
 
@@ -296,6 +279,19 @@ function sendForm(e){
 window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',scrollY>60);});
 document.querySelectorAll('.reveal').forEach(function(r){
   new IntersectionObserver(function(e){if(e[0].isIntersecting)e[0].target.classList.add('visible');},{threshold:0.1}).observe(r);
+});
+
+var navToggle = document.getElementById('nav-toggle');
+var navEl = document.getElementById('nav');
+navToggle.addEventListener('click', function(){
+  var isOpen = navEl.classList.toggle('nav-open');
+  navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
+navEl.querySelectorAll('.nav-links a').forEach(function(link){
+  link.addEventListener('click', function(){
+    navEl.classList.remove('nav-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
 });
 </script>
 </body>

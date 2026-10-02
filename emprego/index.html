@@ -25,9 +25,11 @@
     <li><a href="/#contacto">Contacto</a></li>
   </ul>
   <a href="https://wa.me/244954157826" target="_blank" class="nav-cta">💬 WhatsApp</a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <section class="page-head">
+  <p><a href="/" class="btn-ghost" style="display:inline-block;margin-bottom:24px;">← Voltar ao início</a></p>
   <div class="sec-label reveal">Emprego &amp; Carreira</div>
   <h1>O seu próximo passo<br><em>profissional começa aqui.</em></h1>
   <p>CVs, candidaturas e orientação de carreira para o mercado angolano e internacional — feito por quem percebe o que os recrutadores procuram.</p>
@@ -39,7 +41,7 @@
     <div class="svc-card reveal d1"><div class="svc-num">02</div><div class="svc-icon">✉️</div><h2 class="svc-name">Cartas Profissionais</h2><p class="svc-desc">Carta de apresentação, motivação e recomendação redigidas com profissionalismo.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
     <div class="svc-card reveal d2"><div class="svc-num">03</div><div class="svc-icon">🔗</div><h2 class="svc-name">Perfil LinkedIn</h2><p class="svc-desc">Optimização completa do seu perfil LinkedIn para atrair recrutadores nacionais e internacionais.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
     <div class="svc-card reveal"><div class="svc-num">04</div><div class="svc-icon">🌍</div><h2 class="svc-name">Tradução PT → EN</h2><p class="svc-desc">Tradução profissional de documentos para candidaturas internacionais.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
-    <div class="svc-card reveal d1"><div class="svc-num">05</div><div class="svc-icon">🎯</div><h2 class="svc-name">Candidaturas SEPE</h2><p class="svc-desc">Apoio completo nas candidaturas ao sector público — conta SEPE, curriculum online, CV em PDF e submissão.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
+    <div class="svc-card reveal d1"><div class="svc-num">05</div><div class="svc-icon">🎤</div><h2 class="svc-name">Preparação para Entrevistas</h2><p class="svc-desc">Simulação de entrevista com feedback directo — postura, respostas e confiança para o dia real.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
     <div class="svc-card reveal d2"><div class="svc-num">06</div><div class="svc-icon">🏆</div><h2 class="svc-name">Vagas Nacionais e Internacionais</h2><p class="svc-desc">Identificação de oportunidades de emprego em Angola e no exterior adequadas ao seu perfil.</p><div class="svc-arrow">↗</div><div class="svc-bar"></div></div>
   </div>
 </section>
@@ -73,6 +75,19 @@
 window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',scrollY>60);});
 document.querySelectorAll('.reveal').forEach(function(r){
   new IntersectionObserver(function(e){if(e[0].isIntersecting)e[0].target.classList.add('visible');},{threshold:0.1}).observe(r);
+});
+
+var navToggle = document.getElementById('nav-toggle');
+var navEl = document.getElementById('nav');
+navToggle.addEventListener('click', function(){
+  var isOpen = navEl.classList.toggle('nav-open');
+  navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
+navEl.querySelectorAll('.nav-links a').forEach(function(link){
+  link.addEventListener('click', function(){
+    navEl.classList.remove('nav-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
 });
 </script>
 </body>
